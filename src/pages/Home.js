@@ -36,6 +36,9 @@ const Home = () => {
   const messageRef = useRef(null);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if(!token) navigate("/email")
+  },[token])
 
   useEffect(() => {
     if(!socket) return;

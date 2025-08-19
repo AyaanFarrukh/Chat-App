@@ -14,14 +14,12 @@ export const SocketProvider = ({ children }) => {
   const [connected, setConnected] = useState(false);
 
   useEffect(() => {
-     console.log("auth token, ", token)
-    const newSocket = io("http://localhost:5000", {
+    const newSocket = io(process.env.REACT_APP_BACKEND_URL, {
       auth: { token },
       transports: ["websocket"],
       withCredentials: true
     });
 
-    console.log("newsocket", newSocket);
 
     setSocket(newSocket);
 
