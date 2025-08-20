@@ -336,10 +336,10 @@ const Home = () => {
         e.preventDefault();
         updateUserDetails();
     }} encType='multipart/form-data'>
-      <div className='w-full flex flex-col shadow '>
+      <div className='w-full flex flex-col'>
       <div className='flex flex-col mt-2 '>
             <label htmlFor='file'>Profile Picture: 
-              <div className=' rounded-md flex justify-center mt-2 items-center h-10 p-6 bg-slate-200 border hover:border-primary cursor-pointer'>
+              <div className=' rounded-md flex justify-center mt-2 items-center h-10 p-6 bg-slate-200  border hover:border-primary cursor-pointer'>
                  <span className='text-ellipsis line-clamp-1 max-w-[300]'>{photo.name ? photo.name : "Upload Photo"}</span>
                  {photo.name ? <span onClick={clearUpload} className='py-2 px-3 mt-1 cursor-pointer hover:text-primary'><i className='fa-solid fa-xmark'></i></span> : ""}
               </div>
@@ -421,7 +421,7 @@ const Home = () => {
    {chatOpened ? (
     <>
     <div className='user-header fixed w-full bg-white shadow-xl border h-16 flex flex-row p-5 '>
-      <div className= 'user-profile-pic flex justify-center items-center rounded-full shaodw'>
+      <div className= 'user-profile-pic flex justify-center border items-center rounded-full shadow'>
         <img src={otherUser ? otherUser.profile_pic : ""} width={70}  alt="User" className='w-10 h-10 sm:w-10 sm:h-10 md:w-10 md:h-10 object-cover rounded-full shadow-sm' />
       </div>
       <div className='user-info-area flex flex-col ml-5'>

@@ -12,7 +12,10 @@ const ChatBox = ({ messagesSeen, user, typingStatus, onlineUsers, chat, otherUse
   const [previewText, setPreviewText] = useState("Start A Conversation");
 
   useEffect(() => {
-    if (!chat?.lastMessage) return;
+    if (!chat?.lastMessage) {
+      setPreviewText("Start A Conversation");
+      return
+    };
 
     if (iamsender) {
       setPreviewText(seen ? `Seen By ${chat.otherUser.name}` : "Message Sent");
@@ -34,7 +37,7 @@ const ChatBox = ({ messagesSeen, user, typingStatus, onlineUsers, chat, otherUse
       className="chat-box cursor-pointer hover:bg-gray-100 rounded w-full h-20 flex flex-row p-3 border-b border-gray-200 items-center"
     >
 
-      <div className="profile-pic-area flex-shrink-0 flex w-14 h-14 items-center justify-center rounded-full overflow-hidden">
+      <div className="border profile-pic-area flex-shrink-0 flex w-14 h-14 items-center justify-center rounded-full overflow-hidden">
         <img
           src={chat.otherUser.profile_pic}
           className="w-12 h-12 sm:w-20 sm:h-20 md:w-10 md:h-10 object-cover rounded-full shadow-sm"

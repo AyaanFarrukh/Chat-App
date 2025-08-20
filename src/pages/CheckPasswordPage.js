@@ -89,8 +89,8 @@ const CheckPasswordPage = () => {
   return (
       <div className='mt-20'>
          <div className='bg-white w-full max-w-md rounded overflow-hidden p-5 shadow m-auto'>
-          <div className={`${getRandomBgColor()} text-white text-2xl font-semibold flex justify-center items-center rounded-full p-5 w-16 h-16 mx-auto mb-5`}>
-          <span>{getUserProfileLetters()}</span>
+          <div className={`${getRandomBgColor()} text-white text-2xl font-semibold justify-center items-center flex rounded-full p-5 w-16 h-16 mx-auto mb-5`}>
+             {getUserProfileLetters()}
           </div>
           <div className=' mb-5 w-full flex justify-center items-center'>
           <span className='font-bold text-2xl text-center'>Hey {userData.name}, Welcome!</span>
