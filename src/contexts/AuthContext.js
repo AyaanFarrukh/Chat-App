@@ -24,9 +24,7 @@ export const AuthProvider = ({ children }) => {
             credentials: "include"
           });
           const data = await response.json();
-          console.log("data", data);
           if (data.success) {
-            console.log("user fetched", data.userData);
             setUser(data.userData);
           } else {
             toast.error("Some Error Happened");

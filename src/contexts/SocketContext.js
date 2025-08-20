@@ -42,15 +42,6 @@ export const SocketProvider = ({ children }) => {
     };
   }, [token]);
 
-  useEffect(() => {
-    console.log("state socket", socket);
-    if(token) {
-      console.log("token", token)
-    } else {
-      console.log("no token");
-    }
-  },[token,socket])
-
   return (
     <SocketContext.Provider value={{ socket, connected }}>
       {children}

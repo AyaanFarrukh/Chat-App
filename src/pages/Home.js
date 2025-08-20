@@ -44,7 +44,6 @@ const Home = () => {
     if(!socket) return;
 
     const handleMessage = (data) => {
-      console.log("this func is running")
       setMessages(data.conversation.messages); 
       setNoChat(false);
     };
@@ -55,9 +54,7 @@ const Home = () => {
       }
     }
     const handleChats = (data) => {
-      console.log("chat fetched");
       setChatList(data.chatList);
-      console.log(chatList)
       setLoading(false);
       setHaveChats(true);
     }
@@ -115,12 +112,10 @@ const Home = () => {
       try {
         const repsonse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/get-users`)
         const data = await repsonse.json();
-        console.log(data);
         if(user) {
         const allUsers = data.users.filter((per,i) => {
           return per._id !== user._id;
         })
-        console.log("all users", allUsers);
         setUsers(allUsers);
         setFilteredUsers(allUsers);
       }
@@ -370,7 +365,7 @@ const Home = () => {
 }
  
 
-<div className='chat-area flex flex-row w-full md:w-1/3 bg-white border-r border-gray-300'>
+<div className='chat-area h-screen flex flex-row w-full md:w-1/3 bg-white border-r border-gray-300'>
 <div className='p-3 flex flex-col justify-between border'>
   <button onClick={() => openModal()} className='w-8 h-8 text-lg'><i class="fas fa-user"></i></button>
   <div className='flex flex-col items-center justify-center'>

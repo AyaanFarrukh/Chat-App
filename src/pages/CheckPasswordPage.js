@@ -26,7 +26,6 @@ const CheckPasswordPage = () => {
         }
       });
       const data = await response.json();
-      console.log(data);
       if(response.status === 500) {
         toast.error("Server Error!",{ id: LoadingId })
         return;
