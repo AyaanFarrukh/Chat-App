@@ -259,7 +259,10 @@ const Home = () => {
       <div className='flex flex-row justify-between '>
         <h1 className='font-bold text-2xl my-auto '>Add Users</h1>
         <button
-          onClick={() => closeModal()}
+          onClick={() => {
+            closeModal();
+            setTimeout(() => { setSearchedUser(""); },100)
+          }}
           className='ml-3 border rounded shadow p-2 bg-red-700 text-white cursor-pointer w-14 h-18 '
         >
           <i className='fa-solid fa-xmark'></i>
@@ -366,10 +369,12 @@ const Home = () => {
  
 
 <div className='chat-area h-screen flex flex-row w-full md:w-1/3 bg-white border-r border-gray-300'>
-<div className='p-3 flex flex-col justify-between border'>
-  <button onClick={() => openModal()} className='w-8 h-8 text-lg'><i class="fas fa-user"></i></button>
-  <div className='flex flex-col items-center justify-center'>
-    <button onClick={() => openUpdateModal()} className='w-8 h-8 text-lg mb-3'><i class="fas fa-user-pen"></i></button>
+<div className='p-3 flex flex-col border'>
+  <div className='flex justify-center items-center'>
+  <button onClick={() => openModal()} className='w-8 h-8  mr-1 text-lg'><i class="fas fa-user"></i></button>
+  </div>
+  <div className='flex flex-col items-center mt-3 justify-center'>
+    <button onClick={() => openUpdateModal()} className='w-8 h-8 mb-10 text-lg mb-3'><i class="fas fa-user-pen"></i></button>
     <button onClick={() => LogOut()} className='w-8 h-8 text-lg'><i class="fas fa-right-from-bracket"></i></button>
   </div>
 </div>
