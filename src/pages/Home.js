@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 
 
 const Home = () => {
-  const { token, user, setUser } = useAuth();
+  const { token, user, setUser,logout } = useAuth();
   const { socket, connected } = useSocket();
   const [msg,setMsg] = useState("");
   const [messages,setMessages] = useState([]);
@@ -211,6 +211,7 @@ const Home = () => {
     const data = await response.json();
     if(data.success) {
       toast.success("Successfully LoggedOut",{ id: conversationId });
+      logout();
       navigate("/email")
     }
   }
@@ -228,7 +229,10 @@ const Home = () => {
       const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/update-user`,{
         method: "POST",
         credentials: "include",
-        body: formData
+        body: formData,
+        headers: {
+          "Authorization": `Bearer ${localStorage.getItem("token")}`
+        },
       });
       const data = await response.json();
       if(data.success) {
