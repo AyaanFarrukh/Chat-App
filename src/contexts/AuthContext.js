@@ -10,8 +10,9 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+    const savedToken = localStorage.getItem("token");
+    setToken(savedToken)
     const fetchUser = async () => {
-      const savedToken = localStorage.getItem("token");
       if (savedToken) {
         setToken(savedToken);
         try {
